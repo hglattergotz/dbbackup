@@ -9,7 +9,7 @@
  */
 
 spl_autoload_register(function($class) {
-    if (0 === strpos($class, 'HGG\\Backup\\Test\\')) {
+    if (0 === strpos($class, 'HGG\\DbBackup\\Test\\')) {
         $file = __DIR__ . '/../tests/' . str_replace('\\', '/', $class) . '.php';
 
         if (file_exists($file)) {
@@ -17,7 +17,7 @@ spl_autoload_register(function($class) {
 
             return true;
         }
-    } elseif (0 === strpos($class, 'HGG\\Backup\\')) {
+    } elseif (0 === strpos($class, 'HGG\\DbBackup\\')) {
         $file = __DIR__ . '/../src/' . str_replace('\\', '/', $class) . '.php';
 
         if (file_exists($file)) {
