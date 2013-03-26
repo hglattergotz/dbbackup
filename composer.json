@@ -1,0 +1,22 @@
+{
+    "name": "hgg/dbbackup",
+    "type": "library",
+    "description": "Create backup files of databases or individual tables",
+    "keywords": [ "backup", "mysql", "dump" ],
+    "homepage": "http://github.com/hglattergotz/dbbackup",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Henning Glatter-Götz",
+            "email": "henning@glatter-gotz.com",
+            "homepage": "http://glatter-gotz.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/process": "2.3.*@dev"
+    },
+    "autoload": {
+        "psr-0": { "HGG\\DbBackup\\": "src/" }
+    }
+}
