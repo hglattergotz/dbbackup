@@ -23,21 +23,23 @@ class MySql implements CmdBuilder
     /**
      * make
      *
-     * @param mixed $username
-     * @param mixed $password
-     * @param mixed $database
+     * @param string $username
+     * @param string $password
+     * @param string $host
+     * @param string $database
      * @param array $tables
-     * @param mixed $targetFile
+     * @param string $targetFile
      * @param array $options
      * @access protected
      * @return void
      */
-    public function make($username, $password, $database, array $tables, $targetFile, array $options)
+    public function make($username, $password, $host, $database, array $tables, $targetFile, array $options)
     {
         $components = array('mysqldump');
 
         $components[] = '-u '.$username;
         $components[] = '-p'.$password;
+        $components[] = '-h'.$host;
         $components = array_merge($components, $options);
         $components[] = $database;
         $components = array_merge($components, $tables);

@@ -16,14 +16,15 @@ interface CmdBuilder
     /**
      * make
      *
-     * @param mixed $username
-     * @param mixed $password
-     * @param mixed $database
-     * @param mixed $tables
-     * @param mixed $backupFile
-     * @param mixed $options
+     * @param string $username
+     * @param string $password
+     * @param string $host
+     * @param string $database
+     * @param array $tables
+     * @param string $backupFile
+     * @param array $options
      * @access public
      * @return void
      */
-    public function make($username, $password, $database, array $tables, $backupFile, array $options);
+    public function make($username, $password, $host, $database, array $tables, $backupFile, array $options);
 }
