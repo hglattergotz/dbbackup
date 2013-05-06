@@ -74,7 +74,7 @@ class DbBackup
      */
     public function backupTables($username, $password, $host, $database, array $tables, $backupFile, array $options, &$output)
     {
-        $cmd = $this->cmdBuilder->make($username, $password, $host, $database, $tables, $backupFile, $options);
+        $cmd = $this->cmdBuilder->dump($username, $password, $host, $database, $tables, $backupFile, $options);
 
         $proc = new Process($cmd);
         $proc->run();

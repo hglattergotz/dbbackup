@@ -14,7 +14,7 @@ namespace HGG\DbBackup\CmdBuilder;
 interface CmdBuilder
 {
     /**
-     * make
+     * Creates a dump command
      *
      * @param string $username
      * @param string $password
@@ -24,7 +24,22 @@ interface CmdBuilder
      * @param string $backupFile
      * @param array $options
      * @access public
-     * @return void
+     * @return string
      */
-    public function make($username, $password, $host, $database, array $tables, $backupFile, array $options);
+    public function dump($username, $password, $host, $database, array $tables, $backupFile, array $options);
+
+    /**
+     * Creates a load command
+     *
+     * @param mixed $username
+     * @param mixed $password
+     * @param mixed $host
+     * @param mixed $database
+     * @param array $tables
+     * @param mixed $backupFile
+     * @param array $options
+     * @access public
+     * @return string
+     */
+    public function load($username, $password, $host, $database, $backupFile, array $options);
 }
