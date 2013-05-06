@@ -44,7 +44,7 @@ class MySql implements CmdBuilder
         $components = array_merge($components, $options);
         $components[] = $database;
         $components = array_merge($components, $tables);
-        $components[] = '> '.$targetFile;
+        $components[] = '> '.$backupFile;
 
         return implode(' ', $components);
     }
@@ -70,7 +70,7 @@ class MySql implements CmdBuilder
         $components[] = '-h'.$host;
         $components = array_merge($components, $options);
         $components[] = $database;
-        $components[] = '< '.$sourceFile;
+        $components[] = '< '.$backupFile;
 
         return implode(' ', $components);
     }
