@@ -63,7 +63,7 @@ class MySql implements CmdBuilder
      */
     public function load($username, $password, $host, $database, $backupFile, array $options)
     {
-        $components = array('mysqladmin');
+        $components = array('mysql');
 
         $components[] = '-u '.$username;
         $components[] = '-p'.$password;
