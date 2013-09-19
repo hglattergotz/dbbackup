@@ -25,15 +25,16 @@ class MySqlTest extends \PHPUnit_Framework_TestCase
     {
         $username = 'myuser';
         $password = 'mypass';
+        $host     = 'localhost';
         $database = 'mydb';
         $tables = array('tbl1', 'tbl2');
         $targetFile = '/backupfolder/mybackup.sql';
         $options = array('--add-drop-table');
 
 
-        $expected = 'mysqldump -u myuser -pmypass --add-drop-table mydb tbl1 tbl2 > /backupfolder/mybackup.sql';
+        $expected = "mysqldump -u myuser -pmypass -hlocalhost --add-drop-table mydb tbl1 tbl2 > /backupfolder/mybackup.sql";
         $cmdBld = new MySql();
-        $cmd = $cmdBld->make($username, $password, $database, $tables, $targetFile, $options);
+        $cmd = $cmdBld->dump($username, $password, $host, $database, $tables, $targetFile, $options);
         $this->assertEquals($expected, $cmd);
     }
 
@@ -41,15 +42,16 @@ class MySqlTest extends \PHPUnit_Framework_TestCase
     {
         $username = 'myuser';
         $password = 'mypass';
+        $host     = 'localhost';
         $database = 'mydb';
         $tables = array();
         $targetFile = '/backupfolder/mybackup.sql';
         $options = array('--add-drop-table');
 
 
-        $expected = 'mysqldump -u myuser -pmypass --add-drop-table mydb > /backupfolder/mybackup.sql';
+        $expected = "mysqldump -u myuser -pmypass -hlocalhost --add-drop-table mydb > /backupfolder/mybackup.sql";
         $cmdBld = new MySql();
-        $cmd = $cmdBld->make($username, $password, $database, $tables, $targetFile, $options);
+        $cmd = $cmdBld->dump($username, $password, $host, $database, $tables, $targetFile, $options);
         $this->assertEquals($expected, $cmd);
     }
 }

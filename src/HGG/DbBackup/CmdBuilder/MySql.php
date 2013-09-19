@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is part of the HGG package.
  *
  * (c) 2013 Henning Glatter-Götz <henning@glatter-gotz.com>
