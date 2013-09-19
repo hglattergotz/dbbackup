@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/hglattergotz/dbbackup.png)](https://travis-ci.org/hglattergotz/dbbackup)
-
 Programmatically create dump files of an entire database or individual tables
-in a PHP application.
+in a PHP application. Restore from dump files.
+
+[![Build Status](https://travis-ci.org/hglattergotz/dbbackup.png)](https://travis-ci.org/hglattergotz/dbbackup)
 
 ## Installation
 
@@ -15,9 +15,15 @@ Using Composer:
 }
 ```
 
+Download source and manually add to project:
+
+ - Get the zip file [here](http://github.com/hglattergotz/dbbackup/archive/master.zip)
+
 ## Supported Databases:
 
  - MySql
+
+Pull Requests for additional database engines welcome!
 
 ## Usage
 

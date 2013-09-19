@@ -65,12 +65,12 @@ class MySql implements CmdBuilder
     {
         $components = array('mysql');
 
-        $components[] = '-u '.$username;
-        $components[] = '-p'.$password;
-        $components[] = '-h'.$host;
+        $components[] = '-u '.escapeshellarg($username);
+        $components[] = '-p'.escapeshellarg($password);
+        $components[] = '-h'.escapeshellarg($host);
         $components = array_merge($components, $options);
-        $components[] = $database;
-        $components[] = '< '.$backupFile;
+        $components[] = escapeshellarg($database);
+        $components[] = '< '.escapeshellarg($backupFile);
 
         return implode(' ', $components);
     }

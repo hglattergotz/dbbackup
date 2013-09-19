@@ -52,4 +52,19 @@ class MySqlTest extends \PHPUnit_Framework_TestCase
         $cmd = $cmdBld->dump($username, $password, $host, $database, $tables, $targetFile, $options);
         $this->assertEquals($expected, $cmd);
     }
+
+    public function testMySqlRestore()
+    {
+        $username = 'myuser';
+        $password = 'mypass';
+        $host     = 'localhost';
+        $database = 'mydb';
+        $dumpFile = '/backupfolder/mybackup.sql';
+        $options = array();
+
+        $expected = "mysql -u 'myuser' -p'mypass' -h'localhost' 'mydb' < '/backupfolder/mybackup.sql'";
+        $cmdBld = new MySql();
+        $cmd = $cmdBld->load($username, $password, $host, $database, $dumpFile, $options);
+        $this->assertEquals($expected, $cmd);
+    }
 }
