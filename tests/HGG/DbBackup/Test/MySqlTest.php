@@ -24,15 +24,14 @@ class MySqlTest extends \PHPUnit_Framework_TestCase
     public function testMySqlTables()
     {
         $username = 'myuser';
-        $password = 'mypass';
+        $password = "mypass";
         $host     = 'localhost';
         $database = 'mydb';
         $tables = array('tbl1', 'tbl2');
         $targetFile = '/backupfolder/mybackup.sql';
         $options = array('--add-drop-table');
 
-
-        $expected = "mysqldump -u myuser -pmypass -hlocalhost --add-drop-table mydb tbl1 tbl2 > /backupfolder/mybackup.sql";
+        $expected = "mysqldump -u 'myuser' -p'mypass' -h'localhost' --add-drop-table 'mydb' 'tbl1' 'tbl2' > '/backupfolder/mybackup.sql'";
         $cmdBld = new MySql();
         $cmd = $cmdBld->dump($username, $password, $host, $database, $tables, $targetFile, $options);
         $this->assertEquals($expected, $cmd);
@@ -48,8 +47,7 @@ class MySqlTest extends \PHPUnit_Framework_TestCase
         $targetFile = '/backupfolder/mybackup.sql';
         $options = array('--add-drop-table');
 
-
-        $expected = "mysqldump -u myuser -pmypass -hlocalhost --add-drop-table mydb > /backupfolder/mybackup.sql";
+        $expected = "mysqldump -u 'myuser' -p'mypass' -h'localhost' --add-drop-table 'mydb' > '/backupfolder/mybackup.sql'";
         $cmdBld = new MySql();
         $cmd = $cmdBld->dump($username, $password, $host, $database, $tables, $targetFile, $options);
         $this->assertEquals($expected, $cmd);

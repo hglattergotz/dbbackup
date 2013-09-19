@@ -38,13 +38,13 @@ class MySql implements CmdBuilder
     {
         $components = array('mysqldump');
 
-        $components[] = '-u '.$username;
-        $components[] = '-p'.$password;
-        $components[] = '-h'.$host;
+        $components[] = '-u '.escapeshellarg($username);
+        $components[] = '-p'.escapeshellarg($password);
+        $components[] = '-h'.escapeshellarg($host);
         $components = array_merge($components, $options);
-        $components[] = $database;
-        $components = array_merge($components, $tables);
-        $components[] = '> '.$backupFile;
+        $components[] = escapeshellarg($database);
+        $components = array_merge($components, array_map('escapeshellarg', $tables));
+        $components[] = '> '.escapeshellarg($backupFile);
 
         return implode(' ', $components);
     }
