@@ -37,13 +37,9 @@ try
 {
     $output = '';
     $backup = new DbBackup(new MySql());
-    $backup->backupDb('username',
-                      'password',
-                      'localhost',
-                      'database',
-                      'backupFile',
-                      array(),
-                      &$output);
+    $backup->backupDb('username', 'password', 'localhost', 'database',
+        'backupFile', array(), &$output);
+    
     // log $output
 }
 catch (\Exception $e)
@@ -62,14 +58,9 @@ try
 {
     $output = '';
     $backup = new DbBackup(new MySql());
-    $backup->backupTables('username',
-                          'password',
-                          'localhost',
-                          'database',
-                          array('table1', 'table2'),
-                          'backupFile',
-                          array(),
-                          &$output);
+    $backup->backupTables('username', 'password', 'localhost', 'database',
+        array('table1', 'table2'), 'backupFile', array(), &$output);
+    
     // log $output
 }
 catch (\Exception $e)
@@ -88,13 +79,9 @@ try
 {
     $output = '';
     $restore = new DbRestore(new MySql());
-    $restore->restore('username',
-                      'password',
-                      'localhost',
-                      'database',
-                      'backupFile',
-                      array(),
-                      &$output);
+    $restore->restore('username', 'password', 'localhost', 'database',
+        'backupFile', array(), &$output);
+    
     // log $output
 }
 catch (\Exception $e)
