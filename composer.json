@@ -1,7 +1,7 @@
 {
     "name": "hgg/dbbackup",
     "type": "library",
-    "description": "Create backup files of databases or individual tables",
+    "description": "Create backup files of databases or individual tables and restore from dump files",
     "keywords": [ "backup", "mysql", "dump" ],
     "homepage": "http://github.com/hglattergotz/dbbackup",
     "license": "MIT",
