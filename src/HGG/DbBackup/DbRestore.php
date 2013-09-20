@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is part of the HGG package.
  *
  * (c) 2013 Henning Glatter-Götz <henning@glatter-gotz.com>
@@ -20,18 +20,28 @@ use Symfony\Component\Process\Process;
  */
 class DbRestore
 {
+    /**
+     * cmdBuilder
+     *
+     * @var mixed
+     * @access protected
+     */
     protected $cmdBuilder;
+
+    protected $timeout;
 
     /**
      * __construct
      *
      * @param mixed $cmdBuilder
+     * @param int $timeout
      * @access public
      * @return void
      */
-    public function __construct($cmdBuilder)
+    public function __construct($cmdBuilder, $timeout = 3600)
     {
         $this->cmdBuilder = $cmdBuilder;
+        $this->timeout = $timeout;
     }
 
     /**
@@ -51,7 +61,7 @@ class DbRestore
     {
         $cmd = $this->cmdBuilder->load($username, $password, $host, $database, $backupFile, $options);
 
-        $proc = new Process($cmd);
+        $proc = new Process($cmd, null, null, null, $this->timeout);
         $proc->run();
 
         if (!$proc->isSuccessful()) {

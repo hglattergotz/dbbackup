@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is part of the HGG package.
  *
  * (c) 2013 Henning Glatter-Götz <henning@glatter-gotz.com>
@@ -20,18 +20,34 @@ use Symfony\Component\Process\Process;
  */
 class DbBackup
 {
+    /**
+     * cmdBuilder
+     *
+     * @var mixed
+     * @access protected
+     */
     protected $cmdBuilder;
+
+    /**
+     * timeout
+     *
+     * @var mixed
+     * @access protected
+     */
+    protected $timeout;
 
     /**
      * __construct
      *
      * @param mixed $cmdBuilder
+     * @param int $timeout
      * @access public
      * @return void
      */
-    public function __construct($cmdBuilder)
+    public function __construct($cmdBuilder, $timeout = 3600)
     {
         $this->cmdBuilder = $cmdBuilder;
+        $this->timeout    = $timeout;
     }
 
     /**
@@ -76,7 +92,7 @@ class DbBackup
     {
         $cmd = $this->cmdBuilder->dump($username, $password, $host, $database, $tables, $backupFile, $options);
 
-        $proc = new Process($cmd);
+        $proc = new Process($cmd, null, null, null, $this->timeout);
         $proc->run();
 
         if (!$proc->isSuccessful()) {
@@ -88,5 +104,3 @@ class DbBackup
         return true;
     }
 }
-
-
