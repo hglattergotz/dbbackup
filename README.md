@@ -10,7 +10,7 @@ Using Composer:
 ```json
 {
     "require": {
-        "hglattergotz/dbbackup": "dev-master"
+        "hgg/dbbackup": "dev-master"
     }
 }
 ```
