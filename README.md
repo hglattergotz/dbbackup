@@ -1,3 +1,5 @@
+**No longer maintained! Please use http://github.com/hglattergotz/dbcmd instead**
+
 Programmatically create dump files of an entire database or individual tables
 in a PHP application. Restore from dump files.
 
